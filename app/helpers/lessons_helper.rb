@@ -1,6 +1,6 @@
 module LessonsHelper
   def all_words
-    MyDictionary.all.count
+    MyDictionary.all.size
   end
 
 end
