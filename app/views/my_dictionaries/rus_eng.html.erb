@@ -1,0 +1,25 @@
+
+<table class="table table-bordered table-striped ">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Rus</th>
+      <th>Eng</th>
+    </tr>
+  </thead>
+  <tbody>
+    <th><%=@my_dictionary.id%></th>
+    <th><%=@my_dictionary.rus%></th>
+    <th id="translation"></th>
+  </tbody>
+</table>
+<p>
+<input type='button' value='translation' class="btn btn-info" onClick="translation()">
+</p>
+<%= link_to 'Rus - Eng', rus_eng_lesson_my_dictionaries_path, class: "btn btn-info" %>
+
+<script >
+  function translation(){
+    document.getElementById('translation').innerHTML = "<%=@my_dictionary.eng%>"
+  }
+</script >

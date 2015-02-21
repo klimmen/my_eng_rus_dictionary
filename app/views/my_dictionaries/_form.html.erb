@@ -1,0 +1,26 @@
+<%= form_for([@lesson, @my_dictionary]) do |f| %>
+  <% if @my_dictionary.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@my_dictionary.errors.count, "error") %> prohibited this my_dictionary from being saved:</h2>
+
+      <ul>
+      <% @my_dictionary.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :eng %><br>
+    <%= f.text_field :eng %>
+  </div>
+  <div class="field">
+    <%= f.label :rus %><br>
+    <%= f.text_field :rus %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Add the word", class: "btn btn-info" %>
+  </div>
+<% end %>
+<%= link_to 'Back', lesson_my_dictionaries_path, class: "btn-sm btn-info" %>
