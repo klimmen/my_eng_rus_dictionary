@@ -1,6 +1,6 @@
+
 class LessonsController < ApplicationController
   before_action :set_lesson, only: [:edit, :update, :destroy]
-
   # GET /lessons
   # GET /lessons.json
   def index

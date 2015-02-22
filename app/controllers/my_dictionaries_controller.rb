@@ -1,3 +1,4 @@
+    require 'google_tts'
 class MyDictionariesController < ApplicationController
  before_action :set_my_dictionary, only: [:edit, :update, :destroy]
 
@@ -24,6 +25,8 @@ class MyDictionariesController < ApplicationController
   # POST /my_dictionaries.json
   def create
     @my_dictionary = MyDictionary.new(my_dictionary_params)
+    google_tts = GoogleTts.instantiate
+    google_tts.save("#{@my_dictionary.eng}", "#{@my_dictionary.eng}")
     @lesson = Lesson.find(params[:lesson_id])
     @lesson.my_dictionaries << @my_dictionary
     respond_to do |format|
@@ -41,6 +44,8 @@ class MyDictionariesController < ApplicationController
   # PATCH/PUT /my_dictionaries/1.json
   def update
     respond_to do |format|
+      google_tts = GoogleTts.instantiate
+      google_tts.save("#{my_dictionary_params[:eng]}", "#{my_dictionary_params[:eng]}")
       if @my_dictionary.update(my_dictionary_params)
         format.html { redirect_to lesson_my_dictionaries_path, notice: 'My dictionary was successfully updated.' }
         format.json { render :index, status: :ok}

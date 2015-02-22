@@ -15,7 +15,7 @@
     <% @lessons.each do |lesson| %>
       <tr>
         <td><%= lesson.number %></td>
-        <td><%= lesson.my_dictionaries.size %></td>
+        <td><%= lesson.my_dictionaries_count %></td>
         <td><%= link_to 'Dictionary', lesson_my_dictionaries_path(lesson), class: "btn-sm btn-info" %></td>
         <td><%= link_to 'Edit', edit_lesson_path(lesson), class: "btn-sm btn-info" %></td>
         <td><%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-sm btn-danger" %></td>

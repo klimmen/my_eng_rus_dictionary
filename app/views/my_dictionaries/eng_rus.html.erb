@@ -1,21 +1,25 @@
 <table class="table table-bordered table-striped ">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Eng</th>
-      <th>Rus</th>
+      <th class="col-md-1">ID</th>
+      <th class="col-md-2">Eng</th>
+      <th class="col-md-2">Rus</th>
+      <th>Voice</th>
     </tr>
   </thead>
   <tbody>
     <th><%=@my_dictionary.id%></th>
-    <th><%=@my_dictionary.eng%></th>
+    <th><%=@my_dictionary.eng%></th>    
     <th id="translation"></th>
+    <th><%= audio_tag "out/#{@my_dictionary.eng}.mp3", id: @my_dictionary.eng%>
+    <button class="btn-sm btn-info span1", onclick="document.getElementById('<%=@my_dictionary.eng.to_s%>').play()"><i class="glyphicon glyphicon-play"></i></button></th>
   </tbody>
 </table>
 <p>
+  <%= link_to 'new word', eng_rus_lesson_my_dictionaries_path, class: "btn btn-info" %>
 <input type='button' value='translation' class="btn btn-info" onClick="translation()">
 </p>
-<%= link_to 'Eng - Rus', eng_rus_lesson_my_dictionaries_path, class: "btn btn-info" %>
+<%= link_to 'Back', lesson_my_dictionaries_path, class: "btn-sm btn-info" %>
 
 <script >
   function translation(){

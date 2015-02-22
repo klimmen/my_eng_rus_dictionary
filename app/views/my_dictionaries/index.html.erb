@@ -9,8 +9,9 @@
 <table class="table table-bordered table-striped ">
   <thead>
     <tr>
-      <th>Eng</th>
-      <th>Rus</th>
+      <th class="col-md-2">Rus</th>
+      <th class="col-md-2">Eng</th>      
+      <th>Voice</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -18,8 +19,11 @@
   <tbody>
     <% @lesson.my_dictionaries.each do |my_dictionary| %>
       <tr>
-        <td><%= my_dictionary.eng %></td>
         <td><%= my_dictionary.rus %></td>
+        <td><%= my_dictionary.eng %></td>
+        <%= audio_tag "out/#{my_dictionary.eng}.mp3", id:my_dictionary.eng %>
+        <td><button class="btn-sm btn-info span1", onclick="document.getElementById('<%=my_dictionary.eng.to_s%>').play()"><i class="glyphicon glyphicon-play"></i></button></td>
+        
         <td><%= link_to 'Edit', edit_lesson_my_dictionary_path(@lesson.id, my_dictionary), class: "btn-sm btn-info" %></td>
         <td><%= link_to 'Destroy', [@lesson, my_dictionary], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-sm btn-danger" %></td>
       </tr>

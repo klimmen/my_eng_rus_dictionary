@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150221223203) do
+ActiveRecord::Schema.define(version: 20150222114707) do
 
   create_table "lessons", force: :cascade do |t|
     t.integer  "number"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "counter",    default: 0
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.integer  "my_dictionaries_count", default: 0
   end
 
   create_table "my_dictionaries", force: :cascade do |t|
