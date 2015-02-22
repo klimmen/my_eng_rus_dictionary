@@ -1,4 +1,4 @@
-
+<h3>Lesson - <%=@lesson.number%></h3>
 <table class="table table-bordered table-striped ">
   <thead>
     <tr>
@@ -12,7 +12,7 @@
     <th><%=@my_dictionary.id%></th>
     <th><%=@my_dictionary.rus%></th>
     <th id="translation"></th>
-    <th><%= audio_tag "out/#{@my_dictionary.eng}.mp3", id: @my_dictionary.eng%>
+    <th><%= audio_tag "#{@my_dictionary.eng}.mp3", id: @my_dictionary.eng%>
     <button class="btn-sm btn-info span1", onclick="document.getElementById('<%=@my_dictionary.eng.to_s%>').play()"><i class="glyphicon glyphicon-play"></i></button></th>
   </tbody>
 </table>

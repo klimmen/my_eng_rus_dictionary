@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<h1>Lesson - <%=@lesson.id%></h1>
+<h1>Lesson - <%=@lesson.number%></h1>
 
 <%= link_to 'New My dictionary', new_lesson_my_dictionary_path, class: "btn btn-info" %>
 <%= link_to 'Rus - Eng', rus_eng_lesson_my_dictionaries_path, class: "btn btn-info" %>
@@ -21,7 +21,7 @@
       <tr>
         <td><%= my_dictionary.rus %></td>
         <td><%= my_dictionary.eng %></td>
-        <%= audio_tag "out/#{my_dictionary.eng}.mp3", id:my_dictionary.eng %>
+        <%= audio_tag "#{my_dictionary.eng}.mp3", id:my_dictionary.eng %>
         <td><button class="btn-sm btn-info span1", onclick="document.getElementById('<%=my_dictionary.eng.to_s%>').play()"><i class="glyphicon glyphicon-play"></i></button></td>
         
         <td><%= link_to 'Edit', edit_lesson_my_dictionary_path(@lesson.id, my_dictionary), class: "btn-sm btn-info" %></td>

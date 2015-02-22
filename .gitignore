@@ -15,3 +15,5 @@
 /log/*
 !/log/.keep
 /tmp
+# Ignore all mp3
+ /public/*.mp3

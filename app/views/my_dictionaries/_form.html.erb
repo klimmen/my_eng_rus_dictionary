@@ -1,3 +1,4 @@
+<h1>Lesson - <%=@lesson.number%></h1>
 <%= form_for([@lesson, @my_dictionary]) do |f| %>
   <% if @my_dictionary.errors.any? %>
     <div id="error_explanation">
